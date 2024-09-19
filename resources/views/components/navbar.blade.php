@@ -5,7 +5,6 @@
             <span class="sr-only">Open main menu</span>
             <!--
                 Icon when menu is closed.
-
                 Menu open: "hidden", Menu closed: "block"
             -->
             <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -13,7 +12,6 @@
             </svg>
             <!--
                 Icon when menu is open.
-
                 Menu open: "block", Menu closed: "hidden"
             -->
             <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -26,10 +24,10 @@
             </div>
             <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-    <a href="{{ url('about') }}" class="{{ Request::is('about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium" aria-current="page">About</a>
-    <a href="{{ url('blog') }}" class="{{ Request::is('blog/*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">Blog</a>
-    <a href="{{ url('contact') }}" class="{{ Request::is('contact') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+            <x-nav-link href="{{ url('') }}" :active="Request::is('/')">Home</x-nav-link>
+            <x-nav-link href="{{ url('about') }}" :active="Request::is('about')">About</x-nav-link>
+            <x-nav-link href="{{ url('posts') }}" :active="Request::is('posts*')">Blog</x-nav-link>
+            <x-nav-link href="{{ url('contact') }}" :active="Request::is('contact')">Contact</x-nav-link>
             </div>
             </div>
         </div>
@@ -42,7 +40,6 @@
             </svg>
             </button>
 
-            <!-- Profile dropdown -->
             <div class="relative ml-3">
             <div>
                 <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
@@ -54,15 +51,14 @@
         </div>
         </div>
     </div>
-
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+        <a href="{{ url('/') }}" class="{{ Request::is('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md bg-gray-900 rounded-md px-3 py-2 text-sm font-medium">Home</a>
+        <a href="{{ url('about') }}" class="{{ Request::is('about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" >About</a>
+        <a href="{{ url('posts') }}" class="{{ Request::is('posts*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blog</a>
+        <a href="{{ url('contact') }}" class="{{ Request::is('contact') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
         </div>
     </div>
     </nav>
