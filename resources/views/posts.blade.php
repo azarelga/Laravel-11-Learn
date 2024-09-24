@@ -7,9 +7,9 @@
                 <a href="/posts/{{ $post['slug'] }}" class="hover:underline">
                     <h2 class="text-2xl font-bold mb-4">{{ $post['title'] }}</h2>
                 </a>
-                <p class="text-base text-gray-500 mb-4">{{ $post['author'] }}</p>
+                <p class="text-base text-gray-500 mb-4">{{ $post['author'] }} | {{$post->created_at->diffForHumans()}}</p>
                 <p class="text-gray-700">
-                    {{ Str::limit($post['body'], 50) }}
+                    {{ Str::limit($post['content'], 50) }}
                 </p>
                 <a href="/posts/{{ $post['slug'] }}" class="text-blue-600 hover:underline">Baca Selengkapnya... &raquo;</a>
             </div>
