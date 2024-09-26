@@ -1,7 +1,9 @@
 <x-layout>
     <x-slot:title> {{ $post['title'] }}</x-slot:title>
         <article>
-            <p class="text-base text-gray-500 mb-4">{{ $post['author'] }} | {{$post['created_at']->diffForHumans()}}</p>
+                <div class="text-base text-gray-500 mb-4">
+                    <a href="/authors/{{$post->author->id}}" class="hover:underline">{{ $post->author->name }}</a> | {{$post->created_at->diffForHumans()}}
+                </div>
             <p class="text-gray-700">
                 {{ $post['content'] }}
             </p>
