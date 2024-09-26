@@ -22,8 +22,8 @@ class PostFactory extends Factory
         return [
             'title' => fake()->sentence(10, false),
             'content' => fake()->paragraph,
-            'categories' => fake()->word,
             'username' => User::factory(),
+            'category_id' => Category::factory(),
             'slug' => Str::slug(fake()->sentence()),
             'created_at' => fake()->dateTime,
             'updated_at' => fake()->dateTime,

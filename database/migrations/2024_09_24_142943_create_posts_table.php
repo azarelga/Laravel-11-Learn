@@ -15,9 +15,9 @@ return new class() extends Migration {
             function (Blueprint $table) {
                 $table->id();
                 $table->string('title');
-                $table->foreignId('author_id')->constrained(
+                $table->foreignId('username')->constrained(
                     table: 'users',
-                    indexName: 'posts_author_id_foreign',
+                    indexName: 'posts_username_foreign',
                 );
                 $table->foreignId('category_id')->constrained(
                     table: 'categories',
