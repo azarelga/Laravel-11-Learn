@@ -1,5 +1,8 @@
 <x-layout>
-    <x-slot:title> {{ $title }}</x-slot:title>
+    <x-slot:title>
+    {{ $title }}
+    <p class="text-lg">{{ $subtitle }}</p>
+    </x-slot:title>
     @foreach ($posts as $post)
         <article>
             <div class="container mx-auto px-4 py-8">
@@ -8,7 +11,7 @@
                     <h2 class="text-2xl font-bold mb-2">{{ $post['title'] }}</h2>
                 </a>
                 <div class="text-base text-gray-500 mb-4">
-                    <a href="/authors/{{$post->author->id}}" class="hover:underline">{{ $post->author->name }}</a> | {{$post->created_at->diffForHumans()}} in <a href="/categories/{{Str::slug($post->categories)}}" class="hover:underline">{{ $post->categories}}</a>
+                    <a href="/authors/{{$post->author->username}}" class="hover:underline">{{ $post->author->name }}</a> | {{$post->created_at->diffForHumans()}} in <a href="/categories/{{$post->category->name}}" class="hover:underline">{{ $post->category->name}}</a>
                 </div>
                 <p class="text-gray-700">
                     {{ Str::limit($post['content'], 50) }}
