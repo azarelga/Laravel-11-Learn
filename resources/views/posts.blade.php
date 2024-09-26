@@ -10,9 +10,9 @@
                 <a href="/posts/{{ $post['slug'] }}" class="hover:underline">
                     <h2 class="text-2xl font-bold mb-2">{{ $post['title'] }}</h2>
                 </a>
-                <div class="text-base text-gray-500 mb-4">
-                    <a href="/authors/{{$post->author->username}}" class="hover:underline">{{ $post->author->name }}</a> | {{$post->created_at->diffForHumans()}} in <a href="/categories/{{$post->category->name}}" class="hover:underline">{{ $post->category->name}}</a>
-                </div>
+                <div class="text-base text-black mb-4">
+                   By <a href="/authors/{{$post->author->username}}" class="font-bold hover:underline">{{ $post->author->name }}</a> in <a href="/categories/{{$post->category->slug}}" class="text-gray-500 hover:underline">{{ $post->category->name}}</a> | {{$post->created_at->diffForHumans()}}
+                   </div>
                 <p class="text-gray-700">
                     {{ Str::limit($post['content'], 50) }}
                 </p>
